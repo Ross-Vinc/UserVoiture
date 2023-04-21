@@ -17,19 +17,16 @@
                                 value="{{ $voiture->marque }}">
                             {!! $errors->first('marque', '<small class="help-block">:message</small>') !!}
                         </div>
-                        <div class="form-group {!! $errors->has('type') ? 'has-error' : '' !!}">
-                            <input type="text" name="type" placeholder="type" class="form-control"
-                                value="{{ $voiture->type }}">
-                            {!! $errors->first('type', '<small class="help-block">:message</small>') !!}
+                        <div class="form-group {!! $errors->has('modele') ? 'has-error' : '' !!}">
+                            <input type="text" name="modele" placeholder="modele" class="form-control"
+                                value="{{ $voiture->modele }}">
+                            {!! $errors->first('modele', '<small class="help-block">:message</small>') !!}
                         </div>
                         <div class="form-group {!! $errors->has('couleur') ? 'has-error' : '' !!}">
                             <input name="couleur" type="color" class="form-control" value="{{ $voiture->couleur }}">
                             {!! $errors->first('couleur', '<small class="help-block">:message</small>') !!}
                         </div>
-                        <div class="form-group {!! $errors->has('cylindree') ? 'has-error' : '' !!}">
-                            <input name="cylindree" type="number" class="form-control" value="{{ $voiture->cylindree }}">
-                            {!! $errors->first('cylindree', '<small class="help-block">:message</small>') !!}
-                        </div>
+
                         <input class="btn btn-primary pull-right" type="submit" value="Envoyer">
                     </form>
                 </div>

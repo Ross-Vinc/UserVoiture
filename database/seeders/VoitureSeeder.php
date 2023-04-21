@@ -12,6 +12,6 @@ class VoitureSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        \App\Models\Voiture::factory(10)->create();
     }
 }

@@ -17,7 +17,10 @@ class VoitureFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'marque' => $this->faker->word(),
+            'modele' => $this->faker->word(),
+            'couleur' => $this->faker->colorName(),
+            'user_id' => \App\Models\User::inRandomOrder()->first()->id
         ];
     }
 }

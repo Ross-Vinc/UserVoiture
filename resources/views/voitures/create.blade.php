@@ -14,18 +14,15 @@
                             <input type="text" name="marque" placeholder="marque" class="form-control">
                             {!! $errors->first('marque', '<small class="help-block">:message</small>') !!}
                         </div>
-                        <div class="form-group {!! $errors->has('type') ? 'has-error' : '' !!}">
-                            <input type="text" name="type" placeholder="type" class="form-control">
-                            {!! $errors->first('type', '<small class="help-block">:message</small>') !!}
+                        <div class="form-group {!! $errors->has('modele') ? 'has-error' : '' !!}">
+                            <input type="text" name="modele" placeholder="modele" class="form-control">
+                            {!! $errors->first('modele', '<small class="help-block">:message</small>') !!}
                         </div>
                         <div class="form-group {!! $errors->has('couleur') ? 'has-error' : '' !!}">
                             <input name="couleur" type="color" value="" class="form-control">
                             {!! $errors->first('couleur', '<small class="help-block">:message</small>') !!}
                         </div>
-                        <div class="form-group {!! $errors->has('cylindree') ? 'has-error' : '' !!}">
-                            <input name="cylindree" type="number" value="" class="form-control">
-                            {!! $errors->first('cylindree', '<small class="help-block">:message</small>') !!}
-                        </div>
+
                         <input class="btn btn-primary pull-right" type="submit" value="Envoyer">
                     </form>
                 </div>
