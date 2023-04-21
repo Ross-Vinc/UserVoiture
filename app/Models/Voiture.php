@@ -11,9 +11,13 @@ class Voiture extends Model
 
     protected $fillable = [
         'marque',
-        'type',
+        'modele',
         'couleur',
-        'cylindree',
         'user_id',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

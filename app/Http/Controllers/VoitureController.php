@@ -21,7 +21,8 @@ class VoitureController extends Controller
     {
 
         $voitures = Voiture::paginate(10);
-        return view('voitures.index', compact('voitures'));
+        $links = $voitures->links();
+        return view('voitures.index', compact('voitures', 'links'));
     }
 
     /**
@@ -37,7 +38,7 @@ class VoitureController extends Controller
      */
     public function store(StoreVoitureRequest $request)
     {
-        $voiture = Voiture::create($request->validated());
+        $voiture = $request->user()->voitures()->create($request->validated());
         return redirect()->route('voitures.index');
     }
 

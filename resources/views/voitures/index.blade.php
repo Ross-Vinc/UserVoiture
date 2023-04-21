@@ -14,34 +14,41 @@
             </div>
             <table class="table">
                 <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Marque</th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                    </tr>
+                <tr>
+                    <th>#</th>
+                    <th>Marque</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
                 </thead>
                 <tbody>
-                    @foreach ($voitures as $voiture)
-                        <tr>
-                            <td>{!! $voiture->id !!}</td>
-                            <td class="text-primary"><strong>{!! $voiture->marque !!}</strong></td>
-                            <td><a href="{{ route('voitures.show', [$voiture->id]) }}"
-                                    class="btn btn-success btn-block">Voir</a>
+                @foreach ($voitures as $voiture)
+                    <tr>
+                        <td>{!! $voiture->id !!}</td>
+                        <td class="text-primary"><strong>{!! $voiture->marque !!}</strong></td>
+                        <td><a href="{{ route('voitures.show', [$voiture->id]) }}"
+                               class="btn btn-success btn-block">Voir</a>
+                        </td>
+                        @can('update', $voiture)
+                            <td>
+                                <a href="{{ route('voitures.edit', [$voiture->id]) }}"
+                                   class="btn btn-warning btn-block">Modifier</a>
                             </td>
-                            <td><a href="{{ route('voitures.edit', [$voiture->id]) }}"
-                                    class="btn btn-warning btn-block">Modifier</a></td>
+                        @endcan
+                        @can('delete', $voiture)
                             <td>
                                 <form method="POST" action="{{ route('voitures.destroy', [$voiture->id]) }}">
                                     @csrf
                                     @method('DELETE')
                                     <input type="submit" value="Supprimer" class="btn btn-danger btn-block"
-                                        onclick="return confirm('Voulez-vous vraiment supprimer cet utilisateur ?')">
+                                           onclick="return confirm('Voulez-vous vraiment supprimer cet utilisateur ?')">
                                 </form>
                             </td>
-                        </tr>
-                    @endforeach
+                        @endcan
+
+                    </tr>
+                @endforeach
                 </tbody>
             </table>
         </div>

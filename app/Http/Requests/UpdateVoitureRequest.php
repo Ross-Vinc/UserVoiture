@@ -23,9 +23,8 @@ class UpdateVoitureRequest extends FormRequest
     {
         return [
             'marque' => 'required|string|max:255',
-            'type' => 'required|string|max:255',
+            'modele' => 'required|string|max:255',
             'couleur' => 'required|string|max:255',
-            'cylindree' => 'required|numeric',
         ];
     }
 }
